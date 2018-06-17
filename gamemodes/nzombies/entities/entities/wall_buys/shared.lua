@@ -205,7 +205,7 @@ if SERVER then
 	end
 
 	function ENT:Use( activator, caller )
-		local price = self.Price
+		local price = tonumber(self.Price)
 		
 		local wep
 		for k,v in pairs(activator:GetWeapons()) do
