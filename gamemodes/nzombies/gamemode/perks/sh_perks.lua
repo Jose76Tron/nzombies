@@ -81,9 +81,7 @@ nzPerks:NewPerk("dtap", {
 	func = function(self, ply, machine)
 		local tbl = {}
 		for k,v in pairs(ply:GetWeapons()) do
-			if v:IsFAS2() then
-				table.insert(tbl, v)
-			end
+			table.insert(tbl, v)
 		end
 		if tbl[1] != nil then
 			for k,v in pairs(tbl) do
@@ -95,9 +93,7 @@ nzPerks:NewPerk("dtap", {
 		if !ply:HasPerk("dtap2") then
 			local tbl = {}
 			for k,v in pairs(ply:GetWeapons()) do
-				if v:IsFAS2() then
-					table.insert(tbl, v)
-				end
+				table.insert(tbl, v)
 			end
 			if tbl[1] != nil then
 				for k,v in pairs(tbl) do
@@ -325,9 +321,7 @@ nzPerks:NewPerk("dtap2", {
 	func = function(self, ply, machine)
 		local tbl = {}
 		for k,v in pairs(ply:GetWeapons()) do
-			if v:IsFAS2() then
-				table.insert(tbl, v)
-			end
+			table.insert(tbl, v)
 		end
 		if tbl[1] != nil then
 			for k,v in pairs(tbl) do
@@ -339,9 +333,7 @@ nzPerks:NewPerk("dtap2", {
 		if !ply:HasPerk("dtap") then
 			local tbl = {}
 			for k,v in pairs(ply:GetWeapons()) do
-				if v:IsFAS2() then
-					table.insert(tbl, v)
-				end
+				table.insert(tbl, v)
 			end
 			if tbl[1] != nil then
 				for k,v in pairs(tbl) do
