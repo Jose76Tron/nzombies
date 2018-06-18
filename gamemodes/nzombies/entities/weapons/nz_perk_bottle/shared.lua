@@ -36,21 +36,6 @@ SWEP.BobScale = 0
 SWEP.NZPreventBox = true -- Prevents from being in the box by default
 
 local oldmat
---[[local perk_materials = {
-	["jugg"] = "models/perk_bottle/c_perk_bottle_jugg",
-	["speed"] = "models/perk_bottle/c_perk_bottle_speed",
-	["dtap"] = "models/perk_bottle/c_perk_bottle_dtap",
-	["revive"] = "models/perk_bottle/c_perk_bottle_revive",
-	["dtap2"] = "models/perk_bottle/c_perk_bottle_dtap2",
-	["staminup"] = "models/perk_bottle/c_perk_bottle_stamin",
-	["phd"] = "models/perk_bottle/c_perk_bottle_phd",
-	["deadshot"] = "models/perk_bottle/c_perk_bottle_deadshot",
-	["mulekick"] = "models/perk_bottle/c_perk_bottle_mulekick",
-	["cherry"] = "models/perk_bottle/c_perk_bottle_cherry",
-	["tombstone"] = "models/perk_bottle/c_perk_bottle_tombstone",
-	["whoswho"] = "models/perk_bottle/c_perk_bottle_whoswho",
-	["vulture"] = "models/perk_bottle/c_perk_bottle_vulture",
-}]]
 
 if SERVER then
 	util.AddNetworkString("perk_blur_screen")
@@ -62,16 +47,10 @@ function SWEP:SetupDataTables()
 
 end
 
-function SWEP:Initialize()
-	if CLIENT then
-		if self.Owner == LocalPlayer() then
-			local vm = LocalPlayer():GetViewModel()
-			print(self:GetPerk())
-			local mat = nzPerks:Get(self:GetPerk()).material --perk_materials[self:GetPerk()]
-			oldmat = vm:GetMaterial() or ""
-			vm:SetMaterial(mat)
-		end
-	end
+function SWEP:PreDrawViewModel(vm, wep, ply)
+	local mat = nzPerks:Get(self:GetPerk()).material
+	oldmat = vm:GetMaterial() or ""
+	vm:SetMaterial(mat)
 end
 
 function SWEP:Equip( owner )
