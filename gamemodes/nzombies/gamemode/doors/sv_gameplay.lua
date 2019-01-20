@@ -129,6 +129,9 @@ function nzDoors:BuyDoor( ply, ent )
 						self:OpenLinkedDoors( link, ply )
 					end
 					return true
+				else
+					PrintMessage( HUD_PRINTTALK, "You need to turn on electricity first!" )
+					return false
 				end
 			end
 		end)
@@ -154,10 +157,11 @@ function nzDoors.OnUseDoor( ply, ent )
 	if ent:IsBuyableEntity() then
 		if ent.buyable == nil or tobool(ent.buyable) then
 			nzDoors:BuyDoor( ply, ent )
+			--print("test")
 		end
 	end
 end
-hook.Add( "PlayerUse", "nzPlayerBuyDoor", nzDoors.OnUseDoor )
+hook.Add( "FindUseEntity", "nzPlayerBuyDoor", nzDoors.OnUseDoor )
 
 function nzDoors.CheckUseDoor(ply, ent)
 	--print(ply, ent)
